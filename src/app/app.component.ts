@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.usersState$ = this.userService.user$().pipe(
+    this.usersState$ = this.userService.users$().pipe(
       map((response: ApiResponse<Page>) => {
         console.log(response);
-        return ({ appState: 'APP_LOADED', appData: response })
+        return ({ appState: 'APP_LOADED', appData: response });
       }
       ),
       startWith({ appState: 'APP_LOADING' }),

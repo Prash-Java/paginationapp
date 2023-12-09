@@ -8,16 +8,16 @@ import { Page } from '../interface/page';
   providedIn: 'root'
 })
 export class UserService {
-  private readonly serverUrl: String = 'http://locahost:8080'
+  private readonly serverUrl: String = 'http://localhost:8080'
 
   constructor(private http: HttpClient) { }
 
   // Make call to service/api to retrieve users
-  user$ = (name: String = '', page: Number = 0, size: Number = 10): Observable<ApiResponse<Page>> =>
-  this.http.get<any>(`${this.serverUrl}/users?name=${name}&page=${page}&size=${size}`)
+  users$ = (name: string = '', page: number = 0, size: number = 10): Observable<ApiResponse<Page>> =>
+  this.http.get<ApiResponse<Page>>(`${this.serverUrl}/users?name=${name}&page=${page}&size=${size}`)
 
   // Another way of same logic
-  getUser(name: String = '', page: Number = 0, size: Number = 10): Observable<any> {
-    return this.http.get<any>(`${this.serverUrl}/users?name=${name}&page=${page}&size=${size}`)
-  }
+  // getUser(name: string = '', page: number = 0, size: number = 10): Observable<ApiResponse<Page>> {
+  //   return this.http.get<ApiResponse<Page>>(`${this.serverUrl}/users?name=${name}&page=${page}&size=${size}`)
+  // }
 }

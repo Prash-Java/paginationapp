@@ -1,7 +1,7 @@
 export interface ApiResponse<T> {
-    timeStamp: String;
-    statusCode: Number;
-    status: String;
-    message: String;
+    timeStamp: string;
+    statusCode: number;
+    status: string;
+    message: string;
     data: { page: T }
 }
